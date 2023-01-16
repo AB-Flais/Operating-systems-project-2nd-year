@@ -1,0 +1,43 @@
+.container {
+  z-index: -1;
+  display: var(--background);
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.bubbles {
+  position: absolute;
+  display: flex;
+  height: 100vh;
+}
+.bubbles span {
+  top: -50px;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  filter: blur(15px) opacity(0.5);
+  background: var(--secondary-clr);
+  margin: 0 2px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px var(--secondary-clr);
+  animation-name: background_animation;
+  /* The higher value of --i, the higher will be the speed of the bubble */
+  animation-duration: calc(350s / var(--i));
+  /* Bubbles go faster when they are near the top of the screen.
+     It helps the screen feel balanced, since the bubbles are bigger when they are on top.
+     At the same time, the speed change is smooth and probably the user won't notice */
+  animation-timing-function: cubic-bezier(.3,0,1,.8);
+  animation-iteration-count: infinite;
+  /* I put the animation delay because either way all the bubbles start at the same time.
+     This way, faster bubbles start sooner so all the animation feels a bit more natural */
+  animation-delay: calc(30s / (var(--i) - 9) - 1s);
+}
+@keyframes background_animation {
+  from  {
+    transform: translateY(110vh) scale(0.2);
+  }
+  to {
+    transform: translateY(-10vh) scale(1.2);
+  }
+}

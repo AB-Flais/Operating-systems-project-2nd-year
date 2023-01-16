@@ -1,0 +1,109 @@
+ul {
+  /* Light grey */
+  --pile-background-clr: #3e3f46;
+  --title: "";
+  position: absolute;
+  transform: skewY(-15deg);
+  cursor: default;
+}
+ul li {
+  position: relative;
+  list-style: none;
+  width: auto;
+  /* This min width assures three digit instants won't overflow the ::after pseudo element */
+  min-width: 140px;
+  background: var(--pile-background-clr);
+  padding: 2vh;
+  transition: 0.5s;
+  z-index: var(--i);
+}
+ul li:hover {
+  transform: translateX(-50px);
+  background: var(--clr);
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  background: var(--pile-background-clr);
+  filter: brightness(0.7);
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 0.5s;
+}
+ul li:hover::before {
+  background: var(--clr);
+  filter: brightness(0.7);
+}
+ul li::after {
+  content: var(--title);
+  text-decoration: underline;
+  font-size: 1.5em;
+  font-weight: bold;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: var(--pile-background-clr);
+  filter: brightness(0.9);
+  transform-origin: bottom;
+  transform: skewX(45deg);
+  transition: 0.5s;
+}
+ul li:hover::after {
+  background: var(--clr);
+  color: var(--clr2);
+}
+/* .beforeHover: text that will be shown by default
+   .afterHover: text that will be shown when hovering
+   .icon: i element that will be shown on the ::before pseudo element */
+ul li::after, .beforeHover, .afterHover, .icon {
+  /* Black */
+  color: #999;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  text-align: center;
+}
+ul li .beforeHover {
+  position: relative;
+  transform: scale(1.5);
+  opacity: 1;
+}
+ul li:hover .beforeHover {
+  opacity: 0;
+}
+ul li .afterHover {
+  position: absolute;
+  color: var(--clr2);
+  opacity: 0;
+}
+ul li:hover .afterHover {
+  opacity: 1;
+}
+ul li .icon {
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  transform-origin: right;
+  transform: skewY(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  font-size: 1.25em;
+}
+ul li:hover .icon {
+  opacity: 1;
+}
+
+/* Used in javascript to adjust the width of the main lists */
+#fakeList li .beforeHover { transform: none; font-size: x-large}
+#fakeList li .afterHover { position: relative; }

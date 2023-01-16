@@ -1,0 +1,127 @@
+<!-- All the elements that make the function of buttons in the code are implemented
+as anchor elements. The only reason for that is the greater flexibility in styling links than buttons
+
+.screen_(number) classes are used to group all the elements that will be shown in each part (screen)
+of the lineal progress of the site
+
+.hidden makes all the elements to not be shown until the "show" class is added in the script
+
+The i element on the .button elements has no purpose but being styled -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Práctica 3 </title>
+    <!-- Fontawesome link, used to put some icons in the page -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body onload="screen_1()">
+    <!-- Div container for elements on screen 1 -->
+    <div class="buttons_div">
+      <!-- clr = red -->
+      <a class="hidden screen_1 button" href="javascript:screen_2(true);" style="--clr:#1e9bff"> <span> Best gap </span><i></i></a>
+      <!-- clr = blue -->
+      <a class="hidden screen_1 button" href="javascript:screen_2(false);" style="--clr:#ff1867"> <span> Worst gap </span><i></i></a>
+    </div>
+
+
+    <!-- Div container for elements on screen 2 -->
+    <div class="buttons_div">
+        <label id="label" class="hidden label" for="inputTag">
+          Select file (.txt)
+          <br> <br>
+          <span id="fileName"> You can drag here </span>
+          <input id="inputTag" type="file" accept=".txt" onchange="showSubmit(files[0])"/>
+        </label>
+      <!-- clr = green -->
+      <a id="submit" class="hidden screen_2 button" href="javascript:screen_3();" style="--clr:#6ef43e"> <span> Submit </span><i></i></a>
+    </div>
+
+
+    <div class="hidden screen_3 buttons_div" style="position:relative;width:300px;justify-content:space-evenly">
+        <a id="next" class="hidden screen_3 screen_3_button screen_3_button_hover" href="javascript: nextInstant()" style="--shadow-clr:#6ef43e"> Next <i class="fa-solid fa-angle-up"></i> </a>
+        <a class="hidden screen_3 screen_3_button screen_3_button_hover" href="javascript: download()" style="--shadow-clr:#1e9bff"> Download </a>
+        <a id="previous" class="hidden screen_3 screen_3_button screen_3_button_hover" href="javascript: previousInstant()" style="--shadow-clr:#ff1867" > Previous <i class="fa-solid fa-angle-down"></i> </a>
+    </div>
+
+
+    <div id="lists_container"></div>
+
+
+    <!-- Used in javascript code to adjust the width of the main lists -->
+    <ul id="fakeList" style="position: absolute; left: -100vw; top: -100vh">
+    </ul>
+
+
+    <!-- BACKGROUND -->
+    <div class="container">
+      <div class="bubbles">
+        <span style="--i:38"></span>
+        <span style="--i:11"></span>
+        <span style="--i:31"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:32"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:36"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:37"></span>
+        <span style="--i:25"></span>
+        <span style="--i:29"></span>
+        <span style="--i:35"></span>
+        <span style="--i:21"></span>
+        <span style="--i:15"></span>
+        <span style="--i:30"></span>
+        <span style="--i:27"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:39"></span>
+        <span style="--i:33"></span>
+        <span style="--i:17"></span>
+        <span style="--i:28"></span>
+        <span style="--i:34"></span>
+        <span style="--i:38"></span>
+        <span style="--i:11"></span>
+        <span style="--i:31"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:32"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:36"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:37"></span>
+        <span style="--i:25"></span>
+        <span style="--i:29"></span>
+        <span style="--i:35"></span>
+        <span style="--i:21"></span>
+      </div>
+    </div>
+  </body>
+  <!-- Works with the input element and its label -->
+  <script src="scripts/input.js"></script>
+  <!-- Defines an equal method to comapare arrays, it's in its own sheet for a better legibility of the other sheets -->
+  <script src="scripts/equals.js"></script>
+  <!-- Works with the transitions between screens -->
+  <script src="scripts/transitions.js"></script>
+  <!-- Adds new Elements to the ul elements -->
+  <script src="scripts/listConstructor.js"></script>
+
+  <script src="scripts/main.js"></script>
+
+  <!-- Implements the functions that are referring the three buttons: Next, Previous and Download -->
+  <script src="scripts/thirdScreenActions.js"></script>
+</html>

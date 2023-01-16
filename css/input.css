@@ -1,0 +1,32 @@
+.label {
+  --border-clr: var(--secondary-clr);
+
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  padding: 10px 30px;
+  background: var(--background-clr);
+  transition: 0.5s;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: 3px dashed var(--border-clr);
+}
+.label:hover {
+  border: 3px solid var(--border-clr);
+  outline: none;
+  letter-spacing: 0.25em;
+  background: var(--secondary-clr);
+  box-shadow: 0 0 35px var(--border-clr);
+}
+input {
+  display: none;
+}
+#fileName {
+  /* white with lower brightness, it's done manually instead of with a filter for
+     posterior changes on it by javascript. Since the first color is the only one with
+     lower brightness, only the color will have to be changed and not the filter*/
+  color: #878787;
+}

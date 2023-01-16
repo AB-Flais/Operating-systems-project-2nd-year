@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700');
+@import "pile.css";              /* Styles the ul elements */
+@import "buttons.css";           /* Styles the a elements displayed on the first and second screen */
+@import "screen_3_buttons.css";  /* Styles the a elements displayed on the third screen */
+@import "input.css";             /* Styles the input element and its label */
+@import "background.css";        /* Styles .container, .bubbles and its spans to animate the background */
+
+/* CHANGE BETWEEN none AND flex WHETHER YOU WANT TO DISABLE OR NOT THE BACKGROUND */
+:root { --background: flex }
+
+* {
+  /* Dark grey */
+  --background-clr: #27282c;
+  /* Light grey */
+  --secondary-clr: #444;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--background-clr);
+  overflow: hidden;
+}
+
+#lists_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TRANSITIONS */
+.hidden {
+  /* Even though the opacity is zero the element is still there so user can click it.
+     To make the transition smooth, the display will be changed by javascript code */
+  display: none;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(50vh);
+  transition: all 0.5s, transform 1.5s, filter 1.5s;
+}
+.show {
+  filter: blur(0);
+  transform: none;
+  opacity: 1;
+}
+.gone {
+  filter: blur(5px);
+  transform: translateY(-50vh);
+  opacity: 0;
+}

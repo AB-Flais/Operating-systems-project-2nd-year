@@ -1,0 +1,37 @@
+.screen_3_button {
+  /* White */
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  letter-spacing: 0.1em;
+  padding: 10px 30px;
+}
+.screen_3_button {
+  --clr: var(--secondary-clr);
+  transition: 0.5s;
+  border-radius: 30px;
+  cursor: default;
+  border: 3px solid var(--background-clr);
+  outline: 3px dashed var(--clr);
+}
+.screen_3_button:hover {
+  color: var(--secondary-clr);
+}
+/* .screen_3_button_hover will be erased to .screen_3_button elements to show visually
+   that they are disabled. Of course, along with it, its href will be erased to. */
+.screen_3_button_hover {
+  cursor: pointer;
+}
+.screen_3_button_hover:hover {
+  color: #fff;
+  background: var(--clr);
+  letter-spacing: 0.25em;
+  outline: none;
+  background: var(--secondary-clr);
+  box-shadow: 0 0 35px var(--secondary-clr);
+  border: 3px solid var(--clr);
+  box-shadow: inset 0 -1em 3em var(--shadow-clr),
+             0 0  0 2px var(--shadow-clr),
+             0 0 1em var(--shadow-clr);
+}
